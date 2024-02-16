@@ -1,0 +1,33 @@
+.navBar {
+  padding: 40px 40px;
+  background-color: rgba(0, 0, 0, 0.248);
+  border-radius: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.icon {
+  width: 96px;
+  height: 96px;
+}
+
+.authButtons {
+  display: flex;
+  width: 420px;
+  justify-content: space-between;
+}
+
+.authButton {
+  width: 185px;
+  border-radius: 30px;
+  height: 70px;
+  background-color: rgb(210, 11, 38);
+  font-size: 20px;
+  font-weight: 700;
+  color: rgb(0, 0, 0);
+}
+
+.authButton:hover {
+  background-color: rgb(149, 14, 5);
+}/*# sourceMappingURL=Home.module.css.map */
