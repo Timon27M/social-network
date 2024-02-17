@@ -19,15 +19,32 @@
 }
 
 .authButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 185px;
     border-radius: 30px;
     height: 70px;
     background-color: rgb(210, 11, 38);
-    font-size: 20px;
+    font-size: 25px;
     font-weight: 700;
     color: rgb(0, 0, 0);
+    text-decoration: none;
 }
 
 .authButton:hover {
     background-color: rgb(149, 14, 5);
+}
+
+.infoBlock {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 260px;
+}
+
+.title {
+    color: rgb(230, 45, 31);
+    font-size: 70px;
 }
