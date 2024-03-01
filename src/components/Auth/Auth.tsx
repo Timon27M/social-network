@@ -1,28 +1,36 @@
-import styles from './Auth.module.css'
-import { FC } from 'react';
+import styles from "./Auth.module.css";
+import { Children, FC } from "react";
+import { useNavigate } from "react-router-dom"; 
 
 interface IAuth {
-    title: string;
-} 
+  title: string;
+  text: string;
+  textButton: string;
+  children?: React.ReactNode;
+}
 
-const Auth: FC<IAuth> = ({ title }) => {
-    return (
-        <div className={`${styles.auth}`}>
-            <div className={`${styles.container}`}>
+const Auth: FC<IAuth> = ({ title, children, text, textButton }) => {
+
+    const navigate = useNavigate();
+
+    function clickButtonBack() {
+        navigate(-1)
+    }
+
+  return (
+    <div className={`${styles.auth}`}>
+      <div className={`${styles.container}`}>
         <h2 className={`${styles.title}`}>{title}</h2>
-        <form action="" className={`${styles.form}`}>
-        <div className={`${styles.inputs}`}>
-            <p className={`${styles.text}`}>логин</p>
-            <input placeholder='Введите логин' type="text" className={`${styles.input}`} />
-        </div>
-        <div className={`${styles.inputs}`}>
-            <p className={`${styles.text}`}>пароль</p>
-            <input placeholder='Введите пароль' type="text" className={`${styles.input}`} />
-        </div>
-        </form>
+        {children}
       </div>
-        </div>
-    );
-  }
-  
-  export default Auth;
+        <button className={`${styles.button}`} onClick={clickButtonBack}>Назад</button>
+        <span className={`${styles.span}`}>
+            {text} 
+            <button className={`${styles.buttonAuth}`}>{textButton}</button> 
+        </span>
+
+    </div>
+  );
+};
+
+export default Auth;
