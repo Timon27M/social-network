@@ -1,6 +1,8 @@
 import styles from "./register.module.css";
 import Auth from "../../components/Auth/Auth";
 import { useForm } from "../../hooks/hooks";
+import { useEffect } from "react";
+import userApi from "../../utils/api";
 
 function Register() {
   const { handleChange, inputValues } = useForm({
@@ -12,6 +14,7 @@ function Register() {
 
   function submitForm(evt: React.FormEvent<HTMLFormElement>) {
     evt.preventDefault();
+    console.log(inputValues)
   }
 
   return (
