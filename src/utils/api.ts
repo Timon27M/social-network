@@ -3,6 +3,8 @@ import {
   IRegisterUserRequest,
   IToken,
   IUser,
+  ILoginUser,
+  ILoginUserResponse,
 } from "./types";
 
 class UserApi {
@@ -20,17 +22,17 @@ class UserApi {
     return Promise.reject(`Ошибка: ${res.status}`);
   }
 
-  loginUser(email: string, password: string): Promise<IToken> {
+  loginUser(userObj: ILoginUser): Promise<ILoginUserResponse> {
     return fetch(this._baseUrl + "/signin", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        email: email,
-        password: password,
+        email: userObj.email,
+        password: userObj.password,
       }),
-    }).then((res) => this._checkStatus<IToken>(res));
+    }).then((res) => this._checkStatus<ILoginUserResponse>(res));
   }
 
   registerUser(obj: IRegisterUserRequest): Promise<IToken> {

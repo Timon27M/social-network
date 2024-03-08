@@ -1,4 +1,4 @@
-import styles from "./Home.module.css";
+import styles from "./Home.module.scss";
 import icon from "../../images/icons8-houseparty-96.png";
 import { NavLink } from "react-router-dom";
 

@@ -1,22 +1,22 @@
-import styles from "./login.module.css";
+import styles from "./login.module.scss";
 import Auth from "../../components/Auth/Auth";
 import { useForm } from "../../hooks/hooks";
 import { useEffect } from "react";
 import { userSlice } from "../../store/reducers/UserSlice";
 import { useDispatch } from "../../store/store";
+import { loginUser } from "../../store/actionCreaters";
 
 function Login() {
 
-  const {increment} = userSlice.actions;
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(increment('hi'))
+  // useEffect(() => {
+  
 
-    return () => {
-      dispatch(increment('pusto'))
-    }
-  }, [])
+  //   return () => {
+  //     dispatch(increment('pusto'))
+  //   }
+  // }, [])
 
   const { inputValues, handleChange } = useForm({
     email: "",
@@ -25,14 +25,19 @@ function Login() {
 
   function submitForm(evt: React.FormEvent<HTMLFormElement>) {
     evt.preventDefault();
-    console.log(inputValues)
+    console.log(inputValues);
+    const inputValuesObj = {
+      email: inputValues.email,
+      password: inputValues.password,
+    }
+    dispatch(loginUser(inputValuesObj))
 }
 
   return (
     <Auth title="Авторизация" text="Еще не зарегистрированы? " textButton="Регистрация">
       <form action="" className={`${styles.form}`} onSubmit={submitForm}>
         <div className={`${styles.inputs}`}>
-            <p className={`${styles.text}`}>логин</p>
+            <p className={`${styles.text}`}>email</p>
             <input onChange={handleChange} name="email" placeholder='Введите email' type="text" className={`${styles.input}`} />
         </div>
         <div className={`${styles.inputs}`}>

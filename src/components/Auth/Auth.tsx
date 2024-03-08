@@ -1,4 +1,4 @@
-import styles from "./Auth.module.css";
+import styles from "./Auth.module.scss";
 import { Children, FC } from "react";
 import { useNavigate } from "react-router-dom"; 
 

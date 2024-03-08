@@ -1,4 +1,4 @@
-import styles from "./register.module.css";
+import styles from "./register.module.scss";
 import Auth from "../../components/Auth/Auth";
 import { useForm } from "../../hooks/hooks";
 import { useEffect } from "react";

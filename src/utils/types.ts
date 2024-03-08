@@ -9,6 +9,8 @@ export interface IToken {
     token: string
 }
 
+export interface ILoginUserResponse extends IUser, IToken {}
+
 export interface IRegisterUserResponse extends IUser {
     id: string;
     token: string
@@ -18,5 +20,10 @@ export interface IRegisterUserRequest {
     name: string;
     email: string;
     phone: number;
+    password: string;
+}
+
+export interface ILoginUser {
+    email: string;
     password: string;
 }
