@@ -5,18 +5,13 @@ import { useEffect } from "react";
 import { userSlice } from "../../store/reducers/UserSlice";
 import { useDispatch } from "../../store/store";
 import { loginUser } from "../../store/actionCreaters";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
 
+  const navigate = useNavigate();
+
   const dispatch = useDispatch();
-
-  // useEffect(() => {
-  
-
-  //   return () => {
-  //     dispatch(increment('pusto'))
-  //   }
-  // }, [])
 
   const { inputValues, handleChange } = useForm({
     email: "",
@@ -30,7 +25,7 @@ function Login() {
       email: inputValues.email,
       password: inputValues.password,
     }
-    dispatch(loginUser(inputValuesObj))
+    dispatch(loginUser(inputValuesObj, navigate))
 }
 
   return (

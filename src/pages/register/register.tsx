@@ -1,10 +1,14 @@
 import styles from "./register.module.scss";
 import Auth from "../../components/Auth/Auth";
 import { useForm } from "../../hooks/hooks";
-import { useEffect } from "react";
-import userApi from "../../utils/api";
+import { useDispatch } from "../../store/store";
+import { registerUser } from "../../store/actionCreaters";
+import { useNavigate } from "react-router-dom";
 
 function Register() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate()
+
   const { handleChange, inputValues } = useForm({
     name: "",
     email: "",
@@ -14,7 +18,14 @@ function Register() {
 
   function submitForm(evt: React.FormEvent<HTMLFormElement>) {
     evt.preventDefault();
-    console.log(inputValues)
+    console.log(inputValues);
+    const inputValuesObj = {
+      name: inputValues.name,
+      email: inputValues.email,
+      phone: Number(inputValues.phone),
+      password: inputValues.password,
+    };
+    dispatch(registerUser(inputValuesObj, navigate));
   }
 
   return (

@@ -19,7 +19,7 @@ export interface IRegisterUserResponse extends IUser {
 export interface IRegisterUserRequest { 
     name: string;
     email: string;
-    phone: number;
+    phone: number | null;
     password: string;
 }
 
