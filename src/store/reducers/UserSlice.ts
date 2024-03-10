@@ -45,6 +45,16 @@ export const userSlice = createSlice({
       state.isLoading = false;
       state.error = action.payload;
     },
+    resetState(state) {
+      state.user = {
+        email: "",
+        name: "",
+        phone: null,
+        avatar: "",
+      };
+      state.isLoading = false;
+      state.error = "";
+    }
   },
 });
 

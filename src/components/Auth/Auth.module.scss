@@ -19,6 +19,14 @@
   margin-bottom: 110px;
 }
 
+.textError {
+  text-align: end;
+  margin-top: 20px;
+  font-size: 30px;
+  color: rgb(230, 45, 31);
+  min-width: 680px;
+}
+
 .button {
   display: flex;
   justify-content: center;
@@ -33,10 +41,10 @@
   text-decoration: none;
   position: absolute;
   left: 100px;
-}
 
-.button:hover {
-  background-color: rgb(149, 14, 5);
+  &:hover {
+    background-color: rgb(149, 14, 5);
+  }
 }
 
 .span {
@@ -52,8 +60,8 @@
   text-decoration: none;
   background-color: rgba(0, 0, 0, 0);
   border: none;
-}
 
-.buttonAuth:hover {
-  color: rgb(149, 14, 5);
+  &:hover {
+    color: rgb(149, 14, 5);
+  }
 }

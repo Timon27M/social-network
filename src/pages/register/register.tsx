@@ -4,10 +4,16 @@ import { useForm } from "../../hooks/hooks";
 import { useDispatch } from "../../store/store";
 import { registerUser } from "../../store/actionCreaters";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import { userSlice } from "../../store/reducers/UserSlice";
 
 function Register() {
   const dispatch = useDispatch();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    dispatch(userSlice.actions.resetState())
+  }, []);
 
   const { handleChange, inputValues } = useForm({
     name: "",
@@ -47,7 +53,7 @@ function Register() {
             onChange={handleChange}
             name="email"
             placeholder="Введите почту"
-            type="text"
+            type="email"
             className={`${styles.input}`}
           />
         </div>
@@ -67,7 +73,7 @@ function Register() {
             onChange={handleChange}
             name="password"
             placeholder="Введите пароль"
-            type="text"
+            type="password"
             className={`${styles.input}`}
           />
         </div>
