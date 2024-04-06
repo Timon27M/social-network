@@ -2,7 +2,7 @@ import styles from "./Auth.module.scss";
 import { FC } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "../../store/store";
-//ssh test2
+//ssh test23
 interface IAuth {
   title: string;
   text: string;
