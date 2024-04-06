@@ -1,8 +1,8 @@
 import styles from "./Auth.module.scss";
 import { FC } from "react";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 import { useSelector } from "../../store/store";
-
+//ssh test
 interface IAuth {
   title: string;
   text: string;
@@ -11,21 +11,21 @@ interface IAuth {
 }
 
 const Auth: FC<IAuth> = ({ title, children, text, textButton }) => {
-    const { error } = useSelector(state => state.user)
+  const { error } = useSelector((state) => state.user);
 
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    function clickButtonBack() {
-        navigate(-1)
+  function clickButtonBack() {
+    navigate(-1);
+  }
+
+  function clickButtonTransition() {
+    if (textButton === "Регистрация") {
+      navigate("/register", { replace: true });
+    } else {
+      navigate("/login", { replace: true });
     }
-
-    function clickButtonTransition() {
-      if (textButton === 'Регистрация') {
-        navigate('/register', { replace: true })
-      } else {
-        navigate('/login', { replace: true })
-      }
-    }
+  }
 
   return (
     <div className={`${styles.auth}`}>
@@ -34,12 +34,18 @@ const Auth: FC<IAuth> = ({ title, children, text, textButton }) => {
         <span className={`${styles.textError}`}>{error}</span>
         {children}
       </div>
-        <button className={`${styles.button}`} onClick={clickButtonBack}>Назад</button>
-        <span className={`${styles.span}`}>
-            {text} 
-            <button className={`${styles.buttonAuth}`} onClick={clickButtonTransition}>{textButton}</button> 
-        </span>
-
+      <button className={`${styles.button}`} onClick={clickButtonBack}>
+        Назад
+      </button>
+      <span className={`${styles.span}`}>
+        {text}
+        <button
+          className={`${styles.buttonAuth}`}
+          onClick={clickButtonTransition}
+        >
+          {textButton}
+        </button>
+      </span>
     </div>
   );
 };
