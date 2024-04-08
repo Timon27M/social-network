@@ -3,6 +3,7 @@ import styles from "./Main.module.scss";
 import { getUser } from "../../store/actionCreaters";
 import { useDispatch } from "../../store/store";
 import Navbar from "../../components/navbar/Navbar";
+import { Outlet } from "react-router-dom";
 
 function Main() {
   const dispatch = useDispatch();
@@ -16,13 +17,9 @@ function Main() {
       <div>
         <Navbar />
       </div>
-      <div></div>
+      <Outlet />
       <p className={`${styles.text}`}>
-        ОСНОВНАЯ СТРАНИЦАОСНОВНАЯ СТРАНИЦАОСНОВНАЯ СТРАНИЦАОСНОВНАЯ
-        СТРАНИЦАОСНОВНАЯ СТРАНИЦАОСНОВНАЯ СТРАНИЦАОСНОВНАЯ СТРАНИЦАОСНОВНАЯ
-        СТРАНИЦАОСНОВНАЯ СТРАНИЦАОСНОВНАЯ СТРАНИЦАОСНОВНАЯ СТРАНИЦАОСНОВНАЯ
-        СТРАНИЦАОСНОВНАЯ СТРАНИЦАОСНОВНАЯ СТРАНИЦАОСНОВНАЯ СТРАНИЦАОСНОВНАЯ
-        СТРАНИЦА
+        ОСНОВНАЯ СТРАНИЦА
       </p>
     </div>
   );
