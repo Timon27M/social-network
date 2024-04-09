@@ -18,9 +18,7 @@ function Main() {
         <Navbar />
       </div>
       <Outlet />
-      <p className={`${styles.text}`}>
-        ОСНОВНАЯ СТРАНИЦА
-      </p>
+      <p className={`${styles.text}`}>ОСНОВНАЯ СТРАНИЦА</p>
     </div>
   );
 }
