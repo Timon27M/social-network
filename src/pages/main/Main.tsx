@@ -14,11 +14,12 @@ function Main() {
 
   return (
     <div className={`${styles.main}`}>
-      <div>
+      <div className={styles.navbar}>
         <Navbar />
       </div>
-      <Outlet />
-      <p className={`${styles.text}`}>ОСНОВНАЯ СТРАНИЦА</p>
+      <div>
+        <Outlet />
+      </div>
     </div>
   );
 }

@@ -6,6 +6,7 @@ import { Route, Routes } from "react-router-dom";
 import Main from "./pages/main/Main";
 import ProtectedRoute from "./components/Auth/protectedRoute/ProtectedRoute";
 import Chat from "./pages/chat/chat";
+import Profile from "./pages/profile/profile";
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/main" element={<ProtectedRoute element={Main} />}>
           <Route path="chats" element={<Chat />} />
-          <Route path="profile" element={<Chat />} />
+          <Route path="profile" element={<Profile />} />
         </Route>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />

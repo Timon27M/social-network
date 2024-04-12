@@ -9,8 +9,8 @@ function Navbar() {
   const location = useLocation();
 
   useEffect(() => {
-    console.log(location);
-  }, []);
+    console.log(location)
+  }, [])
 
   return (
     <div className={`${styles.navbar}`}>
@@ -31,7 +31,7 @@ function Navbar() {
             <span className={styles.activeDot}></span>
           )} */}
         {/* </div> */}
-        <NavLink
+        <NavLink 
           to={"/main/chats"}
           className={`${styles.icon} ${styles.navButton}`}
         >
