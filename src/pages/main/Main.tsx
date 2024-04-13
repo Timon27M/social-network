@@ -17,7 +17,7 @@ function Main() {
       <div className={styles.navbar}>
         <Navbar />
       </div>
-      <div>
+      <div className={styles.container}>
         <Outlet />
       </div>
     </div>
