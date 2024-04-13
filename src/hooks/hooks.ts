@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 type TInputValues = {
-    [name: string]: string;
+    [name: string]: string
 }
 
 export function useForm(values: TInputValues) {

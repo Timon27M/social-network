@@ -11,7 +11,7 @@ const initialState: IUserState = {
   user: {
     email: "",
     name: "",
-    phone: null,
+    phone: 0,
     avatar: "",
   },
   isLoading: false,
@@ -39,7 +39,7 @@ export const userSlice = createSlice({
       state.user = {
         email: "",
         name: "",
-        phone: null,
+        phone: 0,
         avatar: "",
       };
       state.isLoading = false;
@@ -49,7 +49,7 @@ export const userSlice = createSlice({
       state.user = {
         email: "",
         name: "",
-        phone: null,
+        phone: 0,
         avatar: "",
       };
       state.isLoading = false;
