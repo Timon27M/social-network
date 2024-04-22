@@ -1,44 +1,52 @@
-@import '../../utils/mixins.scss';
+@import "../../utils/mixins.scss";
 
 .profile {
-    width: 100%;
-    display: flex;
-    gap: 80px;
-    flex-direction: column;
-    align-items: center;  
-    margin-top: 70px; 
+  width: 100%;
+  display: flex;
+  gap: 80px;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 70px;
 }
 
 .avatar {
-    border-radius: 50%;
-    width: 120px;
-    height: 120px;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
 }
 
 .name {
-    @include color-text;
-    font-size: 36px;
+  @include color-text;
+  font-size: 36px;
 }
 
 .container {
-    width: 37%;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    overflow: hidden;
+  width: 37%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow: hidden;
 }
 
 .button {
-    width: 37%;
-    background-color: rgba(0, 0, 0, 0.7);
-    border: 3px solid black;
-    border-radius: 10px;
-    color: white;
-    font-size: 25px;
-    padding: 8px;
+  width: 37%;
+  background-color: rgba(0, 0, 0, 0.7);
+  border: 3px solid black;
+  border-radius: 10px;
+  color: white;
+  font-size: 25px;
+  padding: 8px;
 
-    &:hover {
-        border: 3px solid red;
-        background-color: rgba(0, 0, 0, 0.7);
-    }
+  &:hover {
+    border: 3px solid rgb(100, 27, 27);
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+  &:active {
+    background-color: rgb(27, 26, 26);
+  }
+}
+
+.buttonActive {
+    background-color: rgb(228, 47, 7);
+    border: 2px solid black;
 }

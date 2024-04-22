@@ -11,7 +11,7 @@ const initialState: IUserState = {
   user: {
     email: "",
     name: "",
-    phone: 0,
+    phone: "0",
     avatar: "",
   },
   isLoading: false,
@@ -26,6 +26,7 @@ export const userSlice = createSlice({
       state.isLoading = true;
     },
     getUserSuccess(state, action: PayloadAction<IUser>) {
+      console.log(action)
       state.user = {
         email: action.payload.email,
         name: action.payload.name,
@@ -39,7 +40,7 @@ export const userSlice = createSlice({
       state.user = {
         email: "",
         name: "",
-        phone: 0,
+        phone: "0",
         avatar: "",
       };
       state.isLoading = false;
@@ -49,12 +50,12 @@ export const userSlice = createSlice({
       state.user = {
         email: "",
         name: "",
-        phone: 0,
+        phone: "0",
         avatar: "",
       };
       state.isLoading = false;
       state.error = "";
-    }
+    },
   },
 });
 

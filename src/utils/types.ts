@@ -1,7 +1,7 @@
 export interface IUser {
     name: string;
     email: string;
-    phone: number;
+    phone: string;
     avatar: string;
 }
 
@@ -26,4 +26,8 @@ export interface IRegisterUserRequest {
 export interface ILoginUser {
     email: string;
     password: string;
+}
+
+export interface IUserRequestInRedux {
+    payload: IUser
 }

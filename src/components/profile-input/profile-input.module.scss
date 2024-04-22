@@ -1,28 +1,33 @@
-@import '../../utils/mixins.scss';
+@import "../../utils/mixins.scss";
 
 .container {
-    display: flex;
-    align-items: center;
-    gap: 40px;
-    // width: 550px;
-    width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  // width: 550px;
+  width: 100%;
 }
 
 .nameInput {
-    @include color-text;
-    font-size: 28px;
-    min-width: 90px;
+  @include color-text;
+  font-size: 28px;
+  min-width: 90px;
 }
 
 .input {
-    width: 100%;
-    margin-bottom: 10px;
-    height: fit-content;
-    padding: 13px;
-    font-size: 20px;
-    font-weight: 800;
-    background-color: rgba(0, 0, 0, 0);
-    border: none;
-    border-bottom: 4px solid red;
-    color: white;
+  width: 100%;
+  margin-bottom: 10px;
+  height: fit-content;
+  padding: 13px;
+  font-size: 20px;
+  font-weight: 800;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  border-bottom: 4px solid red;
+  color: white;
+  outline: none;
+}
+
+.input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
 }
