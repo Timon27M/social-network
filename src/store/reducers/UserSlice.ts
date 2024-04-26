@@ -11,7 +11,7 @@ const initialState: IUserState = {
   user: {
     email: "",
     name: "",
-    phone: "0",
+    phone: "",
     avatar: "",
   },
   isLoading: false,

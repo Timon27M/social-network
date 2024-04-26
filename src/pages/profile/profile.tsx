@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
 import ProfileInput from "../../components/profile-input/profile-input";
 import { useForm } from "../../hooks/hooks";
-import { useSelector } from "../../store/store";
+import { useDispatch, useSelector } from "../../store/store";
 import styles from "./profile.module.scss";
 import { updateUser } from "../../store/actionCreaters";
+import userApi from "../../utils/api";
 
 function Profile() {
+  const dispatch = useDispatch();
+
   const [inputIsActive, setInputIsActive] = useState(false);
   const { name, avatar, email, phone } = useSelector(
     (store) => store.user.user
@@ -14,28 +17,30 @@ function Profile() {
   function clickButton(evt: React.SyntheticEvent) {
     evt.preventDefault();
 
-    setInputIsActive(!inputIsActive);
-  }
-
-  const { handleChange, inputValues } = useForm({
-    name: "",
-    email: "",
-    phone: "1231",
-    avatar: "",
-  });
-
-  useEffect(() => {
-    console.log(name);
-    console.log(inputValues.email);
-    const values = {
+    if (inputIsActive === true) {
+      const values = {
         name: inputValues.name,
         email: inputValues.email,
         phone: inputValues.phone,
         avatar: inputValues.avatar,
-    };
+      };
+      dispatch(updateUser(values));
+      userApi.updateUser(values)
+    }
 
-    updateUser(values);
-  }, [inputValues.name]);
+    setInputIsActive(!inputIsActive);
+  }
+
+  const { handleChange, inputValues, addValues } = useForm({
+    name: name,
+    email: email,
+    phone: phone,
+    avatar: avatar,
+  });
+
+  useEffect(() => {
+    addValues({ name, avatar, email, phone });
+  }, [name, avatar, email, phone]);
 
   return (
     <div className={styles.profile}>
@@ -53,7 +58,7 @@ function Profile() {
           name="email"
           nameInput="email"
           type="text"
-          value={email}
+          value={inputValues.email}
           isActive={inputIsActive}
           handleChange={handleChange}
         />
@@ -61,7 +66,7 @@ function Profile() {
           name="phone"
           type="number"
           nameInput="phone"
-          value={phone}
+          value={inputValues.phone}
           isActive={inputIsActive}
           handleChange={handleChange}
         />
