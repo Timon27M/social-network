@@ -9,10 +9,36 @@
   margin-top: 70px;
 }
 
+.avatarBlock {
+  width: fit-content;
+  height: fit-content;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+  position: relative;
+  padding: 0;
+  overflow: hidden;
+}
+
 .avatar {
   border-radius: 50%;
   width: 120px;
   height: 120px;
+
+  overflow: hidden;
+
+  &:hover {
+    opacity: 0.3;
+  }
+}
+
+.addIcon {
+  position: absolute;
+  left: 38%;
+  top: 38%;
+  width: 32px;
+  height: 32px
 }
 
 .name {
@@ -47,6 +73,6 @@
 }
 
 .buttonActive {
-    background-color: rgb(228, 47, 7);
-    border: 2px solid black;
+  background-color: rgb(228, 47, 7);
+  border: 2px solid black;
 }

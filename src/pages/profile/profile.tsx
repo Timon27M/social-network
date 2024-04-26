@@ -5,14 +5,25 @@ import { useDispatch, useSelector } from "../../store/store";
 import styles from "./profile.module.scss";
 import { updateUser } from "../../store/actionCreaters";
 import userApi from "../../utils/api";
+import addPhoto from "../../images/check_12221085.png";
 
 function Profile() {
   const dispatch = useDispatch();
+
+  const [addIconActive, setIconActive] = useState(false);
 
   const [inputIsActive, setInputIsActive] = useState(false);
   const { name, avatar, email, phone } = useSelector(
     (store) => store.user.user
   );
+
+  function hoverPhotoButton() {
+    setIconActive(true);
+  }
+
+  function leavePhotoButton() {
+    setIconActive(false);
+  }
 
   function clickButton(evt: React.SyntheticEvent) {
     evt.preventDefault();
@@ -25,7 +36,7 @@ function Profile() {
         avatar: inputValues.avatar,
       };
       dispatch(updateUser(values));
-      userApi.updateUser(values)
+      userApi.updateUser(values);
     }
 
     setInputIsActive(!inputIsActive);
@@ -44,7 +55,16 @@ function Profile() {
 
   return (
     <div className={styles.profile}>
-      <img className={styles.avatar} src={avatar} alt="аватар" />
+      <button
+        className={styles.avatarBlock}
+        onMouseEnter={hoverPhotoButton}
+        onMouseLeave={leavePhotoButton}
+      >
+        {addIconActive === true && (
+          <img src={addPhoto} alt="icon" className={styles.addIcon} />
+        )}
+        <img className={styles.avatar} src={avatar} alt="аватар" />
+      </button>
       <div className={styles.container}>
         <ProfileInput
           name="имя"
