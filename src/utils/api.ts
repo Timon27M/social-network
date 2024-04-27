@@ -75,6 +75,19 @@ class UserApi {
       }),
     }).then((res) => this._checkStatus<IUser>(res));
   }
+
+  updateAvatarUser(link: string): Promise<IUser> {
+    return fetch(this._baseUrl + "/user-avatar", {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${sessionStorage.getItem("token")}`,
+      },
+      body: JSON.stringify({
+        avatar: link,
+      }),
+    }).then((res) => this._checkStatus<IUser>(res));
+  }
 }
 
 const userApi = new UserApi("http://localhost:4000");

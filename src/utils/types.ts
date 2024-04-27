@@ -5,6 +5,10 @@ export interface IUser {
     avatar: string;
 }
 
+export interface IUserAvatar {
+    avatar: string;
+}
+
 export interface IToken {
     token: string
 }

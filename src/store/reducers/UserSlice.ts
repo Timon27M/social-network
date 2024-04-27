@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IUser } from "../../utils/types";
+import { IUser, IUserAvatar } from "../../utils/types";
 
 interface IUserState {
   user: IUser;
@@ -53,6 +53,16 @@ export const userSlice = createSlice({
         phone: "0",
         avatar: "",
       };
+
+    },
+      getUserUpdateAvatar(state, action: PayloadAction<IUserAvatar>) {
+        console.log(action)
+        state.user = {
+          name: state.user.name,
+          email: state.user.email,
+          phone: state.user.phone,
+          avatar: action.payload.avatar,
+        };
       state.isLoading = false;
       state.error = "";
     },

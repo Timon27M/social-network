@@ -1,6 +1,6 @@
 import { AppDispatch } from "./store";
 import userApi from "../utils/api";
-import { ILoginUser, IRegisterUserRequest, IUser } from "../utils/types";
+import { ILoginUser, IRegisterUserRequest, IUser, IUserAvatar } from "../utils/types";
 import { userSlice } from "./reducers/UserSlice";
 import { NavigateFunction } from "react-router-dom";
 
@@ -50,4 +50,7 @@ export const getUser = () => (dispatch: AppDispatch) => {
 
 export const updateUser = (inputValues: IUser) => (dispatch: AppDispatch) => {
   dispatch(userSlice.actions.getUserSuccess(inputValues));
+};
+export const updateUserAvatar = (inputValues: IUserAvatar) => (dispatch: AppDispatch) => {
+  dispatch(userSlice.actions.getUserUpdateAvatar(inputValues));
 };

@@ -6,9 +6,12 @@ import styles from "./profile.module.scss";
 import { updateUser } from "../../store/actionCreaters";
 import userApi from "../../utils/api";
 import addPhoto from "../../images/check_12221085.png";
+import PopupInputAvatar from "../../components/popup-input-avatar/popup-input-avatar";
 
 function Profile() {
   const dispatch = useDispatch();
+
+  const [popupIsActive, setPopupIsActive] = useState(false)
 
   const [addIconActive, setIconActive] = useState(false);
 
@@ -42,6 +45,12 @@ function Profile() {
     setInputIsActive(!inputIsActive);
   }
 
+  function clickButtonAvatar(evt: React.SyntheticEvent) {
+    evt.preventDefault();
+
+    setPopupIsActive(true)
+  } 
+
   const { handleChange, inputValues, addValues } = useForm({
     name: name,
     email: email,
@@ -59,6 +68,7 @@ function Profile() {
         className={styles.avatarBlock}
         onMouseEnter={hoverPhotoButton}
         onMouseLeave={leavePhotoButton}
+        onClick={clickButtonAvatar}
       >
         {addIconActive === true && (
           <img src={addPhoto} alt="icon" className={styles.addIcon} />
@@ -96,8 +106,9 @@ function Profile() {
         className={`${styles.button} ${inputIsActive && styles.buttonActive}`}
         onClick={clickButton}
       >
-        {inputIsActive ? "Редактировать" : "Изменить"}
+        {inputIsActive ? "Сохранить" : "Редактировать"}
       </button>
+      <PopupInputAvatar popupIsActive={popupIsActive} setPopupIsActive={setPopupIsActive} />
     </div>
   );
 }
